@@ -6,10 +6,11 @@ $color_primary: #F1CDB3
 $color_dark_s: #CDCDCD
 $color_light_xl: #FFFFFF
 $color_dark_3xl: #292929
-$color_dark_x: #545454
+$color_dark_l: #545454
 $color-dark-xl: #4C4C4C
 $color-light-l: #F6F6F6
-
+$color-light-s: #FAFAFA
+$color-orange: #F1CDB3
 
 ul, ol 
     list-style: none
@@ -110,7 +111,7 @@ h1,h2,h3,h4,h5,h6
         width: 70%
         margin: 80px auto 100px auto
         justify-content: space-between
-        color: $color_dark_x
+        color: $color_dark_l
         &_text
             align-self: center
             max-width: 45%
@@ -125,3 +126,84 @@ h1,h2,h3,h4,h5,h6
                 font-family: $Georgia
                 font-weight: 400
                 letter-spacing: .06em
+.our_friends
+    background-color: $color-light-l
+    .wrapper    
+        color: $color-dark-l
+        display: flex
+        flex-direction: column
+        align-items: center
+        h3
+            width: 50%
+            text-align: center
+            font-size: 35px
+            font-weight: 400
+            line-height: 45.5px
+            font-family: $Georgia
+            margin: 0 auto
+            padding-top: 80px
+            padding-bottom: 60px
+            letter-spacing: .06em
+        .our_friends_slider            
+            width: 100%
+            display: flex
+            justify-content: space-between
+            align-items: center
+            &_card
+                width: 270px
+                height: 435px
+                background-color: $color-light-s
+                display: flex
+                flex-direction: column
+                align-items: center
+                transition: .2s
+                &:hover
+                    transform: scale(1.02)
+                img
+                    margin-bottom: 30px
+                .animal_name
+                    margin-bottom: 30px
+                    font-family: $Georgia
+                    font-size: 20px
+                    letter-spacing: .06em
+                    line-height: 1.13        
+                button
+                    color: $color-dark-3xl
+                    padding: 15px 45px
+                    border-radius: 100px
+                    border: 2px solid $color-orange
+                    background-color: transparent
+                    transition: .2s
+                    &:hover
+                        cursor: pointer
+                        background-color: $color-orange
+                        box-shadow: 0px 0px 20px -5px $color-dark-l
+            &_btn
+                border: 2px solid $color-orange
+                border-radius: 50%
+                width: 52px
+                height: 52px
+                background-color: transparent
+                transition: .1s
+                display: flex
+                justify-content: center
+                align-items: center
+                &:hover
+                    cursor: pointer
+                    background-color: $color-orange
+        .our_friends_get
+            margin: 60px 0 100px 0
+            padding: 15px 45px
+            border-radius: 100px
+            border: 2px solid $color-orange
+            background-color: $color-orange
+            font-size: 17px
+            font-family: $Georgia
+            line-height: 1.3
+            letter-spacing: .06em
+            color: $color-dark-3xl
+            transition: .2s
+            &:hover
+                cursor: pointer
+                background-color: $color-light-l
+                border: 2px solid $color-orange
