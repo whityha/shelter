@@ -124,13 +124,12 @@ h1,h2,h3,h4,h5,h6
                 max-width: 80%
             p
                 text-align: justify
-                margin-top: 42px
+                margin: 42px 0px
                 color: $color_dark_s
                 font-size: 15px
                 line-height: 24px
-            button
-                margin-top: 42px
-                border: none
+            a    
+                display: inline-block
                 border-radius: 100px
                 padding: 15px 45px
                 font-size: 17px
@@ -141,19 +140,18 @@ h1,h2,h3,h4,h5,h6
                 &:hover
                     cursor: pointer
                     background-color: $color-primary-light
-                a
-                    color: inherit                
+                             
 .about
     &_content
         margin-top: 80px
         display: flex
         width: 70%
         margin: 80px auto 100px auto
-        justify-content: space-between
+        column-gap: 120px
+        justify-content: center
         color: $color_dark_l
         &_text
             align-self: center
-            max-width: 50%
             font-family: $Arial
             font-size: 15px
             line-height: 1.6
@@ -181,43 +179,48 @@ h1,h2,h3,h4,h5,h6
             display: flex
             justify-content: space-between
             align-items: center
-            &_card
-                width: 270px
-                border-radius: 9px
-                height: 435px
-                background-color: $color-light-s                
-                font-family: $Georgia
+            &_cards
                 display: flex
-                flex-direction: column
-                align-items: center
-                transition: .2s
-                &:hover                   
-                    cursor: pointer
-                    background-color: $color-light-xl
-                    button                           
-                        border-color: $color-orange              
-                img
-                    margin-bottom: 30px
-                .animal-name
-                    margin-bottom: 30px
-                    font-size: 20px
-                    letter-spacing: .06em
-                    line-height: 1.13        
-                button
-                    color: $color-dark-3xl
-                    padding: 15px 45px
-                    border-radius: 100px
-                    border: 2px solid $color_primary
-                    background-color: transparent
+                width: 82.5%
+                justify-content: center
+                column-gap: 90px             
+                &_card
+                    width: 270px
+                    border-radius: 9px
+                    height: 435px
+                    background-color: $color-light-s                
+                    font-family: $Georgia
+                    display: flex
+                    flex-direction: column
+                    align-items: center
                     transition: .2s
-                    font-size: 17px
-                    font-weight: 400
-                    letter-spacing: .06em
-                    line-height: 1.3
-                    &:hover
+                    &:hover                   
                         cursor: pointer
-                        border-color: $color-primary-light
-                        background-color: $color-primary-light
+                        background-color: $color-light-xl
+                        button                           
+                            border-color: $color-orange              
+                    img
+                        margin-bottom: 30px
+                    .animal-name
+                        margin-bottom: 30px
+                        font-size: 20px
+                        letter-spacing: .06em
+                        line-height: 1.13        
+                    button
+                        color: $color-dark-3xl
+                        padding: 15px 45px
+                        border-radius: 100px
+                        border: 2px solid $color_primary
+                        background-color: transparent
+                        transition: .2s
+                        font-size: 17px
+                        font-weight: 400
+                        letter-spacing: .06em
+                        line-height: 1.3
+                        &:hover
+                            cursor: pointer
+                            border-color: $color-primary-light
+                            background-color: $color-primary-light
                         
             &_btn
                 border: 2px solid $color_primary
