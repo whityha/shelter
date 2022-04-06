@@ -15,8 +15,8 @@ $color-orange: #F1CDB3
 $color-dark-m: #b2b2b2
 
 $max: 1280px
-$medium: 768px
-$small: 320px
+$medium: 767px
+$small: 319px
 
 ul, ol 
     list-style: none
@@ -73,11 +73,14 @@ h1,h2,h3,h4,h5,h6
     linear-gradient(120deg,#5B483A 10%, #211F20 60%)
     padding-top: 60px
     @media (min-width: $medium) and (max-width: $max)
-        padding: 30px 30px 0px 30px
+        padding-top: 0px
     .header
         height: 60px
         display: flex
         justify-content: space-between
+        @media (min-width: $medium) and (max-width: $max)
+            padding: 30px 30px 60px 30px
+            height: 0px
         .logo
             display: flex
             flex-direction: column
@@ -126,6 +129,9 @@ h1,h2,h3,h4,h5,h6
         @media (min-width: $medium) and (max-width: $max)
             flex-direction: column
             justify-content: start
+            img
+                margin-right: calc((30/768)*100%)
+                margin-left: calc((169/768)*100%)
         &_text
             max-width: 38%
             margin-top: 163px
@@ -136,7 +142,7 @@ h1,h2,h3,h4,h5,h6
                 margin-bottom: 100px
                 max-width: 100% 
                 .text-only
-                    width: 65%
+                    width: 62%
                     margin: 0 auto
             h2
                 font-family: $Georgia
@@ -179,6 +185,12 @@ h1,h2,h3,h4,h5,h6
         column-gap: 120px
         justify-content: center
         color: $color_dark_l
+        @media (min-width: $medium) and (max-width: $max)
+            flex-direction: column
+            width: 57%
+            img
+                width: 300px
+                margin: 80px auto 0 auto
         &_text
             align-self: center
             font-family: $Arial
@@ -186,6 +198,11 @@ h1,h2,h3,h4,h5,h6
             line-height: 1.6
             color: $color-dark-xl
             text-align: left
+            @media (min-width: $medium) and (max-width: $max)
+                order: -1
+                p
+                    margin-top: 25px
+            
             h3
                 +for_h3
             
@@ -196,6 +213,8 @@ h1,h2,h3,h4,h5,h6
         display: flex
         flex-direction: column
         align-items: center
+        @media (min-width: $medium) and (max-width: $max)
+            padding: 0px 30px
         h3
             width: 50%
             text-align: center            
@@ -203,6 +222,8 @@ h1,h2,h3,h4,h5,h6
             padding-top: 80px
             padding-bottom: 60px
             +for_h3
+            @media (min-width: $medium) and (max-width: $max)
+                width: 70%
         .our-friends_slider            
             width: 100%
             display: flex
@@ -212,7 +233,11 @@ h1,h2,h3,h4,h5,h6
                 display: flex
                 width: 82.5%
                 justify-content: center
-                column-gap: 90px             
+                column-gap: 90px     
+                @media (min-width: $medium) and (max-width: $max)
+                    width: 80%
+                    column-gap: normal
+                    justify-content: space-around                 
                 &_card
                     width: 270px
                     border-radius: 9px
@@ -223,6 +248,9 @@ h1,h2,h3,h4,h5,h6
                     flex-direction: column
                     align-items: center
                     transition: .2s
+                    @media (min-width: $medium) and (max-width: $max)
+                        &:last-child
+                            display: none
                     &:hover                   
                         cursor: pointer
                         background-color: $color-light-xl
@@ -283,16 +311,6 @@ h1,h2,h3,h4,h5,h6
             a
                 color: inherit
 
-=line
-    display: flex
-    justify-content: center
-    color: $color-dark-l
-    font-size: 20px
-    line-height: 23px
-    letter-spacing: .06em
-    font-family: $Georgia
-    font-weight: 400
-
 .help
     background-color: $color_light_xl
     padding-bottom: 100px
@@ -303,6 +321,8 @@ h1,h2,h3,h4,h5,h6
             width: 30%
             margin: 80px auto 60px auto
             text-align: center
+            @media (min-width: $medium) and (max-width: $max)
+                width: 40%
         .help_blocks
             width: 100%
             &_list
@@ -313,6 +333,9 @@ h1,h2,h3,h4,h5,h6
                 justify-content: center
                 flex-wrap: wrap
                 row-gap: 55px
+                @media (min-width: $medium) and (max-width: $max)
+                    column-gap: normal
+                    row-gap: 40px
             &_block
                 height: 113px
                 display: flex
@@ -323,6 +346,10 @@ h1,h2,h3,h4,h5,h6
                 letter-spacing: .06em
                 font-family: $Georgia
                 font-weight: 400
+                @media (min-width: $medium) and (max-width: $max)
+                    width: 30%
+                    column-gap: normal
+                    row-gap: normal
             .food
                 background: url('../../assets/icons/icon-pet-food.svg') no-repeat top center
             .transport
@@ -330,6 +357,8 @@ h1,h2,h3,h4,h5,h6
             .toys
                 width: 60px
                 background: url('../../assets/icons/icon-toys.svg') no-repeat top center
+                @media (min-width: $medium) and (max-width: $max)
+                    width: 30%
             .cup
                 background: url('../../assets/icons/icon-bowls-and-cups.svg') no-repeat top center
             .shamp
@@ -355,9 +384,14 @@ h1,h2,h3,h4,h5,h6
         padding-top: 80px
         padding-bottom: 100px     
         align-items: center   
+        @media (min-width: $medium) and (max-width: $max)
+            flex-direction: column
         &_text
             margin: 0 30px 0 30px
             width: 40%
+            @media (min-width: $medium) and (max-width: $max)
+                order: -1
+                width: 70%
             h3
                 +for_h3
                 margin-bottom: 20px
@@ -389,6 +423,8 @@ h1,h2,h3,h4,h5,h6
                 color: $color-dark-m
                 font-style: italic
                 line-height: 18px
+                @media (min-width: $medium) and (max-width: $max)
+                    margin: 0 0 60px 0
 .footer
     background: url('../../assets/images/noise_transparent@2x.png'),
     linear-gradient(120deg,#5B483A 10%, #211F20 60%) 
@@ -397,11 +433,19 @@ h1,h2,h3,h4,h5,h6
         display: flex
         justify-content: space-between
         font-family: $Georgia  
+        @media (min-width: $medium) and (max-width: $max)
+            align-items: center
+            flex-wrap: wrap
+            justify-content: center
+            row-gap: 65px
         &_contacts
             display: flex
             flex-direction: column
             max-width: 23.5%
-            padding-top: 10px
+            padding-top: 10px     
+            @media (min-width: $medium) and (max-width: $max)
+                max-width: 40%  
+                margin-right: 60px    
             h3
                 +for_h3
                 color: $color-light-xl
@@ -441,7 +485,10 @@ h1,h2,h3,h4,h5,h6
             font-size: 20px
             line-height: 23px
             letter-spacing: .06em
-            color: $color_primary            
+            color: $color_primary    
+            @media (min-width: $medium) and (max-width: $max)
+                margin-left: 0
+                max-width: 40%        
             h3
                 +for_h3
                 color: $color-light-xl                
@@ -463,6 +510,8 @@ h1,h2,h3,h4,h5,h6
         &_image
             margin-left: 160px
             max-height: 310px
+            @media (min-width: $medium) and (max-width: $max)
+                margin: 0
 
 
 
