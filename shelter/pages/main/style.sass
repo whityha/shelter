@@ -14,9 +14,13 @@ $color-light-s: #FAFAFA
 $color-orange: #F1CDB3
 $color-dark-m: #b2b2b2
 
+
 $max: 1280px
 $medium: 767px
 $small: 319px
+
+html
+    scroll-behavior: smooth
 
 ul, ol 
     list-style: none
@@ -254,11 +258,11 @@ h1,h2,h3,h4,h5,h6
                     @media (min-width: $medium) and (max-width: $max)
                         &:last-child
                             display: none
-                    &:hover                   
-                        cursor: pointer
+                    &:hover             
                         background-color: $color-light-xl
-                        button                           
-                            border-color: $color-orange              
+                        button         
+                            border-color: $color_primary                  
+                            background-color: $color_primary             
                     img
                         margin-bottom: 30px
                     .animal-name
