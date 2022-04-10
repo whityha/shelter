@@ -31,6 +31,9 @@ a
 
 html
     scroll-behavior: smooth
+    @media (max-width: $medium)
+        max-width: 100vw
+        overflow-x: hidden
 
 *
     box-sizing: border-box
@@ -72,22 +75,16 @@ h1,h2,h3,h4,h5,h6,p
     margin: 0 auto
     @media (max-width: $max)
         width: 100%
-        
-body
-    @media (max-width: $medium)
-        max-width: 100%
-        overflow-x: hidden
-body.active-burger
-    overflow: hidden
-    &::after
-        content: ''
+
+
+.overlay
+    transition: .2s
+    &.active
         position: fixed
-        right: 0
-        top: 0
         width: 100vw
         height: 100vh
         background-color: rgba(41,41,41,.6)
-
+        
 .start-screen
     background: url('../../assets/images/noise_transparent@2x.png'),
     linear-gradient(120deg,#5B483A 10%, #211F20 60%)
@@ -112,9 +109,10 @@ body.active-burger
                 background: url('../../assets/images/Burger.svg') no-repeat center center
                 margin-right: 53px
                 position: relative
-                z-index: 2
+                z-index: 3
                 transition: .5s
                 cursor: pointer
+            
         .logo
             display: flex
             flex-direction: column
@@ -128,7 +126,7 @@ body.active-burger
                     font-weight: 400
                     @media (max-width: $medium)
                         position: relative
-                        z-index: 2
+                        z-index: 3
             span
                 font-family: $Arial
                 font-size: 13px
@@ -137,7 +135,7 @@ body.active-burger
                 @media (max-width: $medium)
                     margin-top: 10px
                     position: relative
-                    z-index: 2
+                    z-index: 3
         .navbar
             &-list
                 display: flex
@@ -172,9 +170,9 @@ body.active-burger
                             height: 3px
                             background-color: $color_primary
             @media (max-width: $medium)
-                position: absolute
+                position: fixed
                 top: 0
-                right: 0
+                right: -110%
                 width: 320px
                 height: 100vh
                 background-color: $color-dark-3xl
@@ -182,15 +180,15 @@ body.active-burger
                 justify-content: center
                 align-items: center
                 transition: .5s
-                transform: translateX(100vw)
-                overflow-x: hidden
-                z-index: 1
+                z-index: 2
+                
         .navbar-active
             @media (max-width: $medium)
-                display: flex
-                transform: translateX(0%)
+                right: 0
         .burger-active
             @media (max-width: $medium)
+                position: fixed
+                right: 0px
                 transform: rotate(90deg)
     &_content
         display: flex
