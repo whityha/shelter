@@ -21,6 +21,7 @@ $small: 319px
 
 html
     scroll-behavior: smooth
+    
 
 ul, ol 
     list-style: none
@@ -72,7 +73,20 @@ h1,h2,h3,h4,h5,h6,p
     @media (max-width: $max)
         width: 100%
         
-
+body
+    @media (max-width: $medium)
+        max-width: 100%
+        overflow-x: hidden
+body.active-burger
+    overflow: hidden
+    &::after
+        content: ''
+        position: fixed
+        right: 0
+        top: 0
+        width: 100vw
+        height: 100vh
+        background-color: rgba(41,41,41,.6)
 
 .start-screen
     background: url('../../assets/images/noise_transparent@2x.png'),
@@ -92,12 +106,15 @@ h1,h2,h3,h4,h5,h6,p
         .burger
             display: none
             @media (max-width: $medium)
-
                 display: block 
                 width: 30px
                 height: 22px
                 background: url('../../assets/images/Burger.svg') no-repeat center center
                 margin-right: 53px
+                position: relative
+                z-index: 2
+                transition: .5s
+                cursor: pointer
         .logo
             display: flex
             flex-direction: column
@@ -109,6 +126,9 @@ h1,h2,h3,h4,h5,h6,p
                     font-size: 32px
                     letter-spacing: 0.06em
                     font-weight: 400
+                    @media (max-width: $medium)
+                        position: relative
+                        z-index: 2
             span
                 font-family: $Arial
                 font-size: 13px
@@ -116,15 +136,26 @@ h1,h2,h3,h4,h5,h6,p
                 font-weight: 400
                 @media (max-width: $medium)
                     margin-top: 10px
+                    position: relative
+                    z-index: 2
         .navbar
             &-list
                 display: flex
                 font-size: 15px
                 line-height: 24px
+                @media (max-width: $medium)
+                    flex-direction: column
+                    align-items: center
+                    row-gap: 43px
                 li
                     margin-left: 35px
+                    @media ( max-width: $medium )
+                        margin: 0
+                        
                     a
                         color: $color_dark_s
+                        @media (max-width: $medium)
+                            font-size: 32px
                         &:hover
                             cursor: pointer
                             color: $color_white
@@ -141,7 +172,26 @@ h1,h2,h3,h4,h5,h6,p
                             height: 3px
                             background-color: $color_primary
             @media (max-width: $medium)
-                display: none
+                position: absolute
+                top: 0
+                right: 0
+                width: 320px
+                height: 100vh
+                background-color: $color-dark-3xl
+                display: flex
+                justify-content: center
+                align-items: center
+                transition: .5s
+                transform: translateX(100vw)
+                overflow-x: hidden
+                z-index: 1
+        .navbar-active
+            @media (max-width: $medium)
+                display: flex
+                transform: translateX(0%)
+        .burger-active
+            @media (max-width: $medium)
+                transform: rotate(90deg)
     &_content
         display: flex
         justify-content: space-between
