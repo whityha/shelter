@@ -133,12 +133,19 @@ h1,h2,h3,h4,h5,h6,p
                 font-size: 13px
                 letter-spacing: 0.116em
                 font-weight: 400
-                @media (max-width: $medium)
-                    margin-top: 10px
-                    position: relative
-                    z-index: 3
+                @media (max-width: $max)
+                    display: inline-block
+                    padding-left: 4px
+                    padding-top: 9px
+                    letter-spacing: .1em
+                    @media (max-width: $medium)
+                        margin-top: 10px
+                        position: relative
+                        z-index: 3
         .navbar
             width: 36.9%
+            @media (max-width: $max)
+                width: 62.7%
             &-list
                 display: flex
                 font-size: 15px
@@ -153,7 +160,6 @@ h1,h2,h3,h4,h5,h6,p
                 li
                     @media ( max-width: $medium )
                         margin: 0
-                        
                     a
                         color: $color_dark_s
                         @media (max-width: $medium)
@@ -202,10 +208,10 @@ h1,h2,h3,h4,h5,h6,p
         @media (max-width: $max)
             flex-direction: column
             justify-content: start
-            margin-top: 0px
+            margin-top: 60px
             img
                 margin-right: calc((10/320)*100%)
-                margin-left: calc((50/320)*100%)
+                margin-left: calc((72/320)*100%)
             @media (max-width: $medium)
                 margin-top: 0px
                 img
@@ -223,7 +229,7 @@ h1,h2,h3,h4,h5,h6,p
                 margin-bottom: 100px
                 max-width: 100% 
                 .text-only
-                    width: 62%
+                    width: 59.8%
                     margin: 0 auto
                 @media (max-width: $medium)
                     margin-bottom: 105px
@@ -284,7 +290,7 @@ h1,h2,h3,h4,h5,h6,p
         color: $color_dark_l
         @media (max-width: $max)
             flex-direction: column
-            width: 57%
+            width: 56.1%
             img
                 width: 300px
                 margin: 80px auto 0 auto
@@ -355,7 +361,7 @@ h1,h2,h3,h4,h5,h6,p
             justify-content: space-between
             align-items: center
             @media (max-width: $max)
-                column-gap: 16px
+                column-gap: 13px
                 justify-content: center
                 @media (max-width: $medium)
                     flex-direction: row
@@ -423,7 +429,10 @@ h1,h2,h3,h4,h5,h6,p
                         transition: .2s
                         font-size: 17px
                         font-weight: 400
-                        letter-spacing: .06em                        
+                        letter-spacing: .06em
+                        @media ( max-width: $max )
+                            padding: 14px 44px
+                                                  
                         &:hover
                             cursor: pointer
                             border-color: $color-primary-light
@@ -465,7 +474,7 @@ h1,h2,h3,h4,h5,h6,p
                     margin: 42px 0 0 0  
 
 .help
-    margin-top: -1px
+    margin-top: -3px
     background-color: $color_light_xl
     padding-bottom: 100px
     @media ( max-width: $medium)
@@ -475,11 +484,11 @@ h1,h2,h3,h4,h5,h6,p
         color: $color-dark-l
         h3
             +for_h3
-            width: 30%
+            width: 40%
             margin: 80px auto 60px auto
             text-align: center
             @media (max-width: $max)
-                width: 40%
+                width: 46%
                 @media (max-width: $medium)
                     width: 80%
                     font-size: 25px
@@ -492,12 +501,12 @@ h1,h2,h3,h4,h5,h6,p
                 width: 85.8%
                 display: flex
                 column-gap: 120px
-                justify-content: center
+                justify-content: space-between
                 flex-wrap: wrap
                 row-gap: 55px
                 @media (max-width: $max)
                     column-gap: normal
-                    row-gap: 40px
+                    row-gap: 55px
                     @media (max-width: $medium)  
                         row-gap: 30px
                         width: 100%
@@ -515,8 +524,6 @@ h1,h2,h3,h4,h5,h6,p
                 font-weight: 400
                 @media (max-width: $max)
                     width: 30%
-                    column-gap: normal
-                    row-gap: normal
                     @media (max-width: $medium)
                         width: 44%
                         margin: 0 3%
@@ -561,21 +568,25 @@ h1,h2,h3,h4,h5,h6,p
         align-items: center   
         @media (max-width: $max)
             flex-direction: column
+            padding-bottom: 97px 
             @media (max-width: $medium)
                 width: 100%
                 padding: 42px 10px
         &_image
             align-self: flex-start
             padding-top: 10px
-            @media (max-width: $medium)
-                img
-                    width: 100%
+            @media (max-width: $max)
+                align-self: center
+                padding-top: 0px
+                @media (max-width: $medium)
+                    img
+                        width: 100%
         &_text
             margin: 0 30px 0 30px
             width: 40%
             @media (max-width: $max)
                 order: -1
-                width: 70%
+                width: auto
                 @media (max-width: $medium)
                     display: flex
                     flex-direction: column
@@ -633,8 +644,10 @@ h1,h2,h3,h4,h5,h6,p
     background: url('../../assets/images/noise_transparent@2x.png'),
     linear-gradient(120deg,#5B483A 10%, #211F20 60%) 
     padding-top: 50px
-    @media (max-width: $medium)
-        padding-top: 0
+    @media (max-width: $max)
+        padding-top: 20px
+        @media (max-width: $medium)
+            padding-top: 0
     &_content
         display: flex
         justify-content: space-between
@@ -643,6 +656,7 @@ h1,h2,h3,h4,h5,h6,p
             align-items: center
             flex-wrap: wrap
             justify-content: center
+            column-gap: 28px
             row-gap: 65px
             @media ( max-width: $medium )
                 padding: 30px 10px 0 10px
@@ -650,7 +664,6 @@ h1,h2,h3,h4,h5,h6,p
                 flex-wrap: nowrap
                 flex-direction: column
                 align-items: center
-                
         &_contacts
             display: flex
             flex-direction: column
@@ -658,7 +671,6 @@ h1,h2,h3,h4,h5,h6,p
             padding-top: 10px     
             @media (max-width: $max)
                 max-width: 40%  
-                margin-right: 60px
                 @media (max-width: $medium)
                     max-width: 100%
                     margin: 0 
@@ -709,6 +721,7 @@ h1,h2,h3,h4,h5,h6,p
             color: $color_primary    
             @media (max-width: $max)
                 margin-left: 0
+                padding-left: 5px
                 max-width: 40%
                 @media (max-width: $medium)
                     margin-left: 0
