@@ -139,7 +139,6 @@ h1,h2,h3,h4,h5,h6,p
                     padding-top: 9px
                     letter-spacing: .1em
                     @media (max-width: $medium)
-                        margin-top: 10px
                         position: relative
                         z-index: 3
         .navbar
@@ -216,6 +215,7 @@ h1,h2,h3,h4,h5,h6,p
                 margin-top: 0px
                 img
                     width: calc((260/320)*100%)
+                    margin-left: calc((50/320)*100%)
         @media (max-width: $medium)
             flex-direction: column     
             align-items: center
@@ -250,6 +250,7 @@ h1,h2,h3,h4,h5,h6,p
                         text-align: center
                         max-width: 200px
                         margin: 0 auto
+                        letter-spacing: .06em
             p
                 text-align: justify
                 margin: 42px 0px
@@ -300,7 +301,7 @@ h1,h2,h3,h4,h5,h6,p
                 img
                     width: 100%
                     margin-top: 0
-                    max-width: 300px
+                    max-width: 259px
         &_text
             align-self: center
             font-family: $Arial
@@ -484,7 +485,7 @@ h1,h2,h3,h4,h5,h6,p
         color: $color-dark-l
         h3
             +for_h3
-            width: 40%
+            width: 30%
             margin: 80px auto 60px auto
             text-align: center
             @media (max-width: $max)
@@ -501,17 +502,18 @@ h1,h2,h3,h4,h5,h6,p
                 width: 85.8%
                 display: flex
                 column-gap: 120px
-                justify-content: space-between
+                justify-content: center
                 flex-wrap: wrap
                 row-gap: 55px
                 @media (max-width: $max)
+                    justify-content: space-between
                     column-gap: normal
                     row-gap: 55px
                     @media (max-width: $medium)  
-                        row-gap: 30px
+                        row-gap: 29px
                         width: 100%
-                        justify-content: flex-start
                         padding-top: 42px
+                        justify-content: space-between
             &_block
                 height: 113px
                 display: flex
@@ -525,14 +527,19 @@ h1,h2,h3,h4,h5,h6,p
                 @media (max-width: $max)
                     width: 30%
                     @media (max-width: $medium)
+                        height: 88px
                         width: 44%
-                        margin: 0 3%
+                        margin: 0 2%
                         font-size: 15px
                         line-height: 16.5px
             .food
-                background: url('../../assets/icons/icon-pet-food.svg') no-repeat top center
+                background: top center no-repeat url('../../assets/icons/icon-pet-food.svg') 
+                @media (max-width: $medium)
+                    background-size: 50px
             .transport
                 background: url('../../assets/icons/icon-transportation.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
             .toys
                 width: 60px
                 background: url('../../assets/icons/icon-toys.svg') no-repeat top center
@@ -540,19 +547,31 @@ h1,h2,h3,h4,h5,h6,p
                     width: 30%
                     @media (max-width: $medium)
                         width: 44%
-                        
+                        background-size: 50px
             .cup
                 background: url('../../assets/icons/icon-bowls-and-cups.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
             .shamp
                 background: url('../../assets/icons/icon-shampoos.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
             .vitamins
                 background: url('../../assets/icons/icon-vitamins.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
             .medic
                 background: url('../../assets/icons/icon-medicines.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
             .collar
                 background: url('../../assets/icons/icon-collars-leashes.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
             .sleep
                 background: url('../../assets/icons/icon-sleeping-area.svg') no-repeat top center
+                @media (max-width: $medium)
+                    background-size: 50px
 
 .donation
     background-color: $color-light-l
@@ -572,6 +591,7 @@ h1,h2,h3,h4,h5,h6,p
             @media (max-width: $medium)
                 width: 100%
                 padding: 42px 10px
+                padding-bottom: 35px
         &_image
             align-self: flex-start
             padding-top: 10px
@@ -579,6 +599,8 @@ h1,h2,h3,h4,h5,h6,p
                 align-self: center
                 padding-top: 0px
                 @media (max-width: $medium)
+                    width: 90%
+                    margin: 0 auto
                     img
                         width: 100%
         &_text
@@ -614,7 +636,7 @@ h1,h2,h3,h4,h5,h6,p
             .card-number
                 margin-bottom: 20px                
                 @media (max-width: $medium)
-                    padding-left: 50px
+                    padding-left: 0px
                 a
                     display: inline-block 
                     font-family: $Georgia
@@ -638,8 +660,9 @@ h1,h2,h3,h4,h5,h6,p
                 @media (max-width: $max)
                     margin: 0 0 60px 0
                     @media (max-width: $medium)
+                        margin-bottom: 40px
                         text-align: justify
-                        width: 90%
+                        width: 93%
 .footer
     background: url('../../assets/images/noise_transparent@2x.png'),
     linear-gradient(120deg,#5B483A 10%, #211F20 60%) 
@@ -672,6 +695,7 @@ h1,h2,h3,h4,h5,h6,p
             @media (max-width: $max)
                 max-width: 40%  
                 @media (max-width: $medium)
+                    padding-top: 2px
                     max-width: 100%
                     margin: 0 
                     align-items: center
@@ -680,9 +704,10 @@ h1,h2,h3,h4,h5,h6,p
                 color: $color-light-xl
                 margin-bottom: 40px
                 @media (max-width: $medium)
+                    margin-bottom: 43px
                     text-align: center
                     font-size: 25px
-                    line-height: 1.1  
+                    line-height: 1.2
             .email
                 padding-left: 60px
                 padding-top: 3px
@@ -724,9 +749,10 @@ h1,h2,h3,h4,h5,h6,p
                 padding-left: 5px
                 max-width: 40%
                 @media (max-width: $medium)
+                    padding-left: 0
                     margin-left: 0
                     max-width: 100%
-                    padding-top: 40px
+                    padding-top: 43px
                     align-items: center
             h3
                 +for_h3
@@ -734,13 +760,13 @@ h1,h2,h3,h4,h5,h6,p
                 @media (max-width: $medium)
                     text-align: center    
                     font-size: 25px
-                    line-height: 1.1      
+                    line-height: 1.2   
                     margin: 0px 15px   
             .address_boston, .address_london                
                 font-style: normal
                 margin-top: 32px
                 @media (max-width: $medium)
-                    margin-top: 40px
+                    margin-top: 35px
                 a
                     display: inline-block
                     color: inherit
@@ -750,10 +776,13 @@ h1,h2,h3,h4,h5,h6,p
                     text-align: left
                     &:hover
                         text-decoration: underline
+            
             .address_london a
                 padding-top: 5px
                 padding-bottom: 5px
             @media (max-width: $medium)
+                .address_london
+                    align-self: flex-start
                 .address_boston a
                     padding-top: 5px
                     padding-bottom: 5px
@@ -764,8 +793,8 @@ h1,h2,h3,h4,h5,h6,p
             @media (max-width: $max)
                 margin: 0
                 @media (max-width: $medium)
-                    margin: 40px 0 0 0
-                    width: 100%
+                    margin: 40px auto 0 auto
+                    width: 86%
                     img
                         display: block
                         width: 100%
