@@ -356,31 +356,52 @@ h1,h2,h3,h4,h5,h6,p
                     font-size: 25px
                     line-height: 32.5px
                     width: 100%
-        .our-friends_slider            
+        .our-friends_slider 
             width: 100%
             display: flex
             justify-content: space-between
             align-items: center
-            @media (max-width: $max)
-                column-gap: 13px
-                justify-content: center
-                @media (max-width: $medium)
-                    flex-direction: row
-                    flex-wrap: wrap
-                    column-gap: 80px
-                    row-gap: 20px
-                    justify-content: center
-                    .btn-left
-                        order: 1
-                        margin-left: 20px
-                    .btn-right
-                        margin-right: 20px
-                        order: 2
-            &_cards
+            &_wrapper   
                 display: flex
                 width: 82.5%
+                justify-content: space-between
+                align-items: center
+                position: relative
+                overflow: hidden
+                height: 435px
+                @media (max-width: $max)
+                    column-gap: 13px
+                    justify-content: center
+                    @media (max-width: $medium)
+                        flex-direction: row
+                        flex-wrap: wrap
+                        column-gap: 80px
+                        row-gap: 20px
+                        justify-content: center
+                        .btn-left
+                            order: 1
+                            margin-left: 20px
+                        .btn-right
+                            margin-right: 20px
+                            order: 2
+            &_cards
+                display: flex
+                width: 100%
                 justify-content: center
-                column-gap: 90px     
+                column-gap: 90px 
+                position: absolute
+                top: 0
+                left: 0
+                transition: .3s
+                &:nth-child(1)
+                    left: -200%
+                &:nth-child(2)
+                    left: -110%
+                &:nth-child(4)
+                    left: 110%
+                &:nth-child(5)
+                    left: 200%
+                        
                 @media (max-width: $max)
                     width: auto
                     flex-grow: 1
@@ -433,7 +454,7 @@ h1,h2,h3,h4,h5,h6,p
                         letter-spacing: .06em
                         @media ( max-width: $max )
                             padding: 14px 44px
-                                                  
+                                                
                         &:hover
                             cursor: pointer
                             border-color: $color-primary-light
