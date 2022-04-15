@@ -114,7 +114,8 @@ toggleBurger();
 
 function slider() {
     const slider = document.querySelector('.our-friends_slider_wrapper');
-    
+    let arrayWithCardsNameRight = [];
+    let arrayWithCardsNameLeft = [];
     const next = document.querySelector('.btn-right'),
           prev = document.querySelector('.btn-left');
     
@@ -125,37 +126,98 @@ function slider() {
     prev.addEventListener('click', () => {
         toSwipe('left');
     });
-    function makeNewSlide() {
+    function createNewSlide(direction = null) {
+        
         const newSlide = document.createElement('div');
         newSlide.classList.add('our-friends_slider_cards');
-        newSlide.innerHTML = `
-        <div class="our-friends_slider_cards_card">
-            <img src='${dataPets[2].img}' alt=${dataPets[2].name}>
-            <span class="animal-name">${dataPets[2].name}</span>
-            <button type="button">Learn more</button>
-        </div>
-        <div class="our-friends_slider_cards_card">
-            <img src='${dataPets[3].img}' alt=${dataPets[3].name}>
-            <span class="animal-name">${dataPets[3].name}</span>
-            <button type="button">Learn more</button>
-        </div>
-        <div class="our-friends_slider_cards_card">
-            <img src="../../assets/images/pets-woody.png" alt="woody">
-            <span class="animal-name">Woody</span>
-            <button type="button">Learn more</button>
-        </div>
-        `;
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        
+        function addNewCardInSlider(direction = null) {
+            const random = getRandomInt(8);
+            if(direction == 'right') {
+                const sliders = slider.querySelectorAll('.our-friends_slider_cards');
+                const lastSlide = [...sliders][[...sliders].length - 1];
+                const firstThreeCards = lastSlide.querySelectorAll('.our-friends_slider_cards_card .animal-name');
+                for(let j = 0; j < 3; j++) {
+                    arrayWithCardsNameRight[j] = firstThreeCards[j].innerHTML;
+                }
+                if(!arrayWithCardsNameRight.includes(dataPets[random].name)) {
+                    newSlide.append(createNewCard(random));
+                    arrayWithCardsNameRight.push(dataPets[random].name);
+                    console.log(arrayWithCardsNameRight)
+                    if(arrayWithCardsNameRight.length > 5) {
+                        arrayWithCardsNameRight.shift();
+                    }
+                } else {
+                    addNewCardInSlider(direction);
+                }
+            } else if (direction == 'left') {
+                const firstSlide = slider.querySelector('.our-friends_slider_cards');
+                const firstThreeCards = firstSlide.querySelectorAll('.our-friends_slider_cards_card .animal-name');
+                for(let j = 0; j < 3; j++) {
+                    arrayWithCardsNameLeft[j] = firstThreeCards[j].innerHTML;
+                }
+                if(!arrayWithCardsNameLeft.includes(dataPets[random].name)) {
+                    newSlide.append(createNewCard(random));
+                    arrayWithCardsNameLeft.push(dataPets[random].name);
+                    console.log(arrayWithCardsNameLeft)
+                    if(arrayWithCardsNameLeft.length > 5) {
+                        arrayWithCardsNameLeft.shift();
+                    }
+                } else {
+                    addNewCardInSlider(direction);
+                }
+            } else {
+                if(!arrayWithCardsNameRight.includes(dataPets[random].name)) {
+                    newSlide.append(createNewCard(random));
+                    arrayWithCardsNameRight.push(dataPets[random].name);
+                    if(arrayWithCardsNameRight.length > 5) arrayWithCardsNameRight.shift();
+                }
+                else {
+                    addNewCardInSlider(direction);
+                }
+            }
+        }     
+
+        function createNewCard(i) {
+            const newCard = document.createElement('div');
+            newCard.classList.add('our-friends_slider_cards_card');
+            newCard.innerHTML = `
+                <img src='${dataPets[i].img}' alt=${dataPets[i].name}>
+                <span class="animal-name">${dataPets[i].name}</span>
+                <button type="button">Learn more</button>
+            `
+            return newCard;
+        }
+        
+        for(let i = 0; i < 3; i++) {
+            addNewCardInSlider(direction);
+        }
+
         return newSlide;
     }
     function toSwipe(direction) {
-
-        if(direction == 'right') {            
+        if(direction == 'right') {   
+            arrayWithCardsNameRight = [];         
             slider.firstElementChild.remove();
-            slider.append(makeNewSlide());
-        } else if (direction == 'left') {            
+            slider.append(createNewSlide(direction));
+        } else if (direction == 'left') { 
+            arrayWithCardsNameLeft = [];           
             slider.lastElementChild.remove();
-            slider.prepend(makeNewSlide());
+            slider.prepend(createNewSlide(direction));
         }
     }
+
+    function createStartPageSlider() {
+        for( let i = 0; i < 5; i++) {
+            slider.append(createNewSlide());
+        }
+    }
+
+    createStartPageSlider();
 }
 slider()
+
