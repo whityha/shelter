@@ -164,7 +164,8 @@ main
                 padding: 42px 10px
         h3
             +for_h3
-            
+            @media (max-width: $medium)
+                line-height: 1.26
         &_cards
             margin-top: 60px
             margin-bottom: 60px
@@ -281,15 +282,12 @@ main
             row-gap: 65px
             column-gap: 28px  
             @media ( max-width: $medium )
-                padding: 30px 10px 0 10px
+                margin-top: 0
+                padding: 25px 10px 0 10px
                 row-gap: 0
                 flex-wrap: none
                 flex-direction: column
                 align-items: center
-            h3
-                text-align: left !important
-                @media (max-width: $medium)
-                    text-align: center !important
         &_contacts
             display: flex
             flex-direction: column
@@ -306,8 +304,11 @@ main
                 color: $color-light-xl
                 margin-bottom: 40px
                 text-align: left
-                @media (max-width: $medium)
-                    text-align: center
+                @media (max-width: $max)
+                    text-align: left
+                    @media (max-width: $medium)
+                        margin-bottom: 45px
+                        text-align: center
             .email
                 padding-left: 60px
                 padding-top: 3px
@@ -349,10 +350,10 @@ main
                 padding-left: 5px
                 max-width: 40%
                 @media (max-width: $medium)
-                    margin-left: 0
+                    padding-left: 0
                     max-width: 100%
-                    padding-top: 40px
-                    align-items: center        
+                    padding-top: 45px
+                    align-items: flex-start        
             h3
                 +for_h3
                 color: $color-light-xl
@@ -360,13 +361,15 @@ main
                 @media (max-width: $max)
                     max-width: 480px
                     @media (max-width: $medium)
+                        align-self: center
                         text-align: center      
-                        margin: 0px 15px              
+                        margin: 0px 15px  
+                        line-height: 1.25            
             .address_boston, .address_london                
                 font-style: normal
                 margin-top: 32px
                 @media (max-width: $medium)
-                    margin-top: 40px
+                    margin-top: 34px
                 a
                     display: inline-block
                     color: inherit
@@ -391,7 +394,7 @@ main
                 margin: 0
                 @media (max-width: $medium)
                     margin: 40px 0 0 0
-                    width: 100%
+                    width: 86%
                     img
                         display: block
                         width: 100%
