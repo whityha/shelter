@@ -361,15 +361,7 @@ h1,h2,h3,h4,h5,h6,p
             display: flex
             justify-content: space-between
             align-items: center
-            &_wrapper   
-                display: flex
-                width: 82.5%
-                justify-content: space-between
-                align-items: center
-                position: relative
-                overflow: hidden
-                height: 435px
-                @media (max-width: $max)
+            @media (max-width: $max)
                     column-gap: 13px
                     justify-content: center
                     @media (max-width: $medium)
@@ -384,6 +376,22 @@ h1,h2,h3,h4,h5,h6,p
                         .btn-right
                             margin-right: 20px
                             order: 2
+            &_wrapper   
+                display: flex
+                width: 82.5%
+                justify-content: space-between
+                align-items: center
+                position: relative
+                overflow: hidden
+                height: 435px   
+                @media (max-width: $max)
+                    justify-content: center   
+                    width: 82.5%        
+                    @media (max-width: $medium)
+                        width: 80%
+                        
+                    
+                
             &_cards
                 display: flex
                 width: 100%
@@ -400,16 +408,15 @@ h1,h2,h3,h4,h5,h6,p
                 &:nth-child(4)
                     left: 110%
                 &:nth-child(5)
-                    left: 200%
-                        
+                    left: 200%                        
                 @media (max-width: $max)
-                    width: auto
+                    width: 100%
                     flex-grow: 1
                     column-gap: 40px
                     justify-content: space-around
                     @media (max-width: $medium)
                         flex-grow: 0
-                        width: 80%
+                        width: 100%
                         column-gap: normal
                         justify-content: space-around                                         
                 &_card

@@ -147,7 +147,6 @@ function slider() {
                 if(!arrayWithCardsNameRight.includes(dataPets[random].name)) {
                     newSlide.append(createNewCard(random));
                     arrayWithCardsNameRight.push(dataPets[random].name);
-                    console.log(arrayWithCardsNameRight)
                     if(arrayWithCardsNameRight.length > 5) {
                         arrayWithCardsNameRight.shift();
                     }
@@ -163,7 +162,6 @@ function slider() {
                 if(!arrayWithCardsNameLeft.includes(dataPets[random].name)) {
                     newSlide.append(createNewCard(random));
                     arrayWithCardsNameLeft.push(dataPets[random].name);
-                    console.log(arrayWithCardsNameLeft)
                     if(arrayWithCardsNameLeft.length > 5) {
                         arrayWithCardsNameLeft.shift();
                     }
