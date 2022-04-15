@@ -87,9 +87,11 @@ h1,h2,h3,h4,h5,h6
         padding: 30px 0px
         display: flex
         padding-top: 36px
-        justify-content: space-between     
-        @media (max-width: $medium)
-            align-items: center   
+        justify-content: space-between  
+        @media (max-width: $max)
+            padding: 29px 0px   
+            @media (max-width: $medium)
+                align-items: center   
         .logo
             height: 60px
             h1
@@ -118,14 +120,19 @@ h1,h2,h3,h4,h5,h6
                 margin-right: 43px
         .navbar
             width: 36.9%
-            @media (max-width: $medium)
-                display: none
+            @media (max-width: $max)
+                width: 63%
+                @media (max-width: $medium)
+                    display: none
         .navbar-list
             display: flex
             column-gap: 35px
             color: $color-dark-l
             font-size: 15px
-            line-height: 24px            
+            line-height: 24px  
+            @media (max-width: $max)
+                column-gap: 36px
+                justify-content: flex-end          
             .active
                 color: $color-dark-3xl
                 position: relative
@@ -151,7 +158,8 @@ main
         flex-direction: column
         align-items: center
         @media (max-width: $max)
-            padding-bottom: 76px
+            padding-top: 83px
+            padding-bottom: 74px
             @media (max-width: $medium)
                 padding: 42px 10px
         h3
@@ -166,8 +174,11 @@ main
             column-gap: 40px
             row-gap: 30px
             color: $color_dark_l
+            
             @media (max-width: $max)
+                margin-top: 30px
                 margin-bottom: 40px
+                max-width: 768px
                 @media (max-width: $medium)
                     flex-direction: column
                     flex-wrap: nowrap
@@ -185,7 +196,7 @@ main
                 align-items: center
                 transition: .2s
                 @media (max-width: $max)
-                    margin: 0 5%
+                    
                     &:nth-child(7)
                         display: none
                     &:nth-child(8)
@@ -254,8 +265,10 @@ main
     background: url('../../assets/images/noise_transparent@2x.png'),
     linear-gradient(120deg,#5B483A 10%, #211F20 60%) 
     padding-top: 40px
-    @media (max-width: $medium)
-        padding-top: 0
+    @media (max-width: $max)
+        padding-top: 14px
+        @media (max-width: $medium)
+            padding-top: 0
     &_content
         display: flex
         justify-content: space-between
@@ -266,6 +279,7 @@ main
             flex-wrap: wrap
             justify-content: center
             row-gap: 65px
+            column-gap: 28px  
             @media ( max-width: $medium )
                 padding: 30px 10px 0 10px
                 row-gap: 0
@@ -282,8 +296,7 @@ main
             max-width: 23.5%
             padding-top: 10px
             @media (max-width: $max)
-                max-width: 40%  
-                margin-right: 60px    
+                max-width: 40%   
                 @media (max-width: $medium)
                     max-width: 100%
                     margin: 0 
@@ -333,6 +346,7 @@ main
             color: $color_primary     
             @media (max-width: $max)
                 margin-left: 0
+                padding-left: 5px
                 max-width: 40%
                 @media (max-width: $medium)
                     margin-left: 0
@@ -343,9 +357,11 @@ main
                 +for_h3
                 color: $color-light-xl
                 text-align: left
-                @media (max-width: $medium)
-                    text-align: center      
-                    margin: 0px 15px              
+                @media (max-width: $max)
+                    max-width: 480px
+                    @media (max-width: $medium)
+                        text-align: center      
+                        margin: 0px 15px              
             .address_boston, .address_london                
                 font-style: normal
                 margin-top: 32px
