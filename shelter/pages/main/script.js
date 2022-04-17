@@ -90,14 +90,41 @@ const dataPets = [
       "parasites": ["lice", "fleas"]
     }
   ]
+function toggleActiveClass(classNameBlock,toggleClassName) {
+    const block = document.querySelector(classNameBlock);
+    if(block.classList.contains(toggleClassName)) block.classList.remove(toggleClassName)
+    else block.classList.add(toggleClassName)
+}
+function deleteActiveClass(classNameBlock,toggleClassName) {
+    const block = document.querySelector(classNameBlock);
+    if(block.classList.contains(toggleClassName)) block.classList.remove(toggleClassName)
+}
+function addActiveClass(classNameBlock,toggleClassName) {
+    const block = document.querySelector(classNameBlock);
+    if(!block.classList.contains(toggleClassName)) block.classList.add(toggleClassName)
+}
+function closePopup() {
+    const closeBtn = document.querySelector('.popup_close-btn')
+    closeBtn.addEventListener('click', () => {
+        deleteActiveClass('.overlay', 'active');
+        deleteActiveClass('.popup','active');
+    })
+}
+closePopup();
+function openPopup() {
+    const slider = document.querySelector('.our-friends_slider_wrapper');
+    slider.addEventListener('click', (e) => {
+        if(e.target && e.target.tagName == 'BUTTON') {
+            addActiveClass('.overlay', 'active');
+            addActiveClass('.popup','active');
+        }
+    })
+}
+openPopup()
 function toggleBurger() {
     const btn = document.querySelector('.burger');
     const overlay = document.querySelector('.overlay');
-    function toggleActiveClass(classNameBlock,toggleClassName) {
-        const block = document.querySelector(classNameBlock);
-        if(block.classList.contains(toggleClassName)) block.classList.remove(toggleClassName)
-        else block.classList.add(toggleClassName)
-    }
+    
     btn.addEventListener('click', () => {
         toggleActiveClass('.navbar', 'navbar-active');
         toggleActiveClass('.burger', 'burger-active');
@@ -105,9 +132,10 @@ function toggleBurger() {
         toggleActiveClass('.logo', 'active');
     })
     overlay.addEventListener('click', (e) => {
-        toggleActiveClass('.navbar', 'navbar-active');
-        toggleActiveClass('.burger', 'burger-active');
-        toggleActiveClass('.overlay', 'active');
+        deleteActiveClass('.navbar', 'navbar-active');
+        deleteActiveClass('.burger', 'burger-active');
+        deleteActiveClass('.overlay', 'active');
+        deleteActiveClass('.popup','active');
     })
 }
 toggleBurger();

@@ -10,7 +10,27 @@
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <div class="overlay"></div>
+    <div class="popup active">   
+        <button type="button" class="popup_close-btn"></button>     
+        <div class="popup_img">
+            <img src="../../assets/images/pets-timmy.png" alt="timmy">
+        </div>
+        <div class="popup_description">            
+            <div class="popup_description_breed">
+                <h4 class="name-animal">Timmy</h4>
+                <p><span class="animal-type">Cat</span> - <span class="animal-breed">Siamskiy</span>
+                </p>
+            </div>
+            <p class="popup_description_text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+            <ul class="popup_description_list">
+                <li class="list-item">Age: <span class="dinamic age">2 months</span></li>
+                <li class="list-item">Inoculations: <span class="dinamic inoculations">none</span></li>
+                <li class="list-item">Diseases: <span class="diseases dinamic">none</span></li>
+                <li class="list-item">Parasites: <span class="dinamic parasites">none</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay active"></div>
     <section id="start-screen" class="start-screen">
         <header class="wrapper header">
             <div class="logo">

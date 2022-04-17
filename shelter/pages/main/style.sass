@@ -81,10 +81,96 @@ h1,h2,h3,h4,h5,h6,p
     transition: .2s
     &.active
         position: fixed
+        z-index: 4
         width: 100vw
         height: 100vh
         background-color: rgba(41,41,41,.6)
-        
+
+.popup.active
+    display: flex
+.popup
+    display: none
+    width: 900px
+    height: 500px
+    background-color: $color-light-s
+    border-radius: 9px
+    position: fixed
+    top: 50%
+    left: 50%
+    z-index: 10
+    transform: translateX(-50%) translateY(-50%)
+    &_close-btn
+        position: absolute
+        right: -40px
+        top: -50px
+        width: 50px
+        height: 50px
+        border: 2px solid $color_primary
+        border-radius: 100px
+        background-color: transparent
+        transform: rotate(45deg)
+        cursor: pointer
+        transition: .2s
+        &:hover
+            background-color: $color-primary-light
+        &::after
+            content: ''
+            background-color: black
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 17px
+            height: 2px
+            transform: rotate(0deg) translateX(-50%) translateY(-50%)
+        &::before
+            content: ''
+            background-color: black
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 2px
+            height: 17px
+            transform: rotate(0deg) translateX(-50%) translateY(-50%)
+            
+    &_img
+        width: 500px
+        img
+            width: 500px
+            border-radius: 9px
+    &_description
+        margin-left: 29px
+        margin-top: 50px
+        margin-right: 20px
+        display: flex
+        flex-direction: column
+        row-gap: 40px
+        font-family: $Georgia
+        &_breed 
+            .name-animal
+                +for_h3
+                color: black
+                margin-bottom: 10px
+            p
+                font-size: 20px
+                line-height: 23px
+        &_list
+            display: flex
+            flex-direction: column
+            row-gap: 10px
+            .list-item
+                font-weight: bold
+                .dinamic
+                    font-weight: normal
+                &::before
+                    color: $color_primary
+                    content: '●'
+                    padding-right: 10px
+
+            
+
+                
+
+
 .start-screen
     background: url('../../assets/images/noise_transparent@2x.png'),
     linear-gradient(120deg,#5B483A 10%, #211F20 60%)
@@ -189,7 +275,7 @@ h1,h2,h3,h4,h5,h6,p
                 justify-content: center
                 align-items: center
                 transition: .5s
-                z-index: 2
+                z-index: 6
                 
         .navbar-active
             @media (max-width: $medium)
