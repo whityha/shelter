@@ -110,11 +110,45 @@ function closePopup() {
         deleteActiveClass('.popup','active');
     })
 }
-closePopup();
+function arrayToString(array) {
+    let string = '';
+    array.forEach(item => {
+        if(array[array.length - 1] == item) string += `${item}`
+        else string += `${item}, `
+    })
+    return string;
+}
+function createPopup(name) {
+    const person = dataPets.filter(item => item.name == name)[0];
+    console.log(person);
+    const newBlock = document.createElement('div');
+    newBlock.classList.add('popup')
+    newBlock.innerHTML = `<button type="button" class="popup_close-btn"></button>     
+        <div class="popup_img">
+            <img src=${person.img} alt=${person.name}>
+        </div>
+        <div class="popup_description">            
+            <div class="popup_description_breed">
+                <h4 class="name-animal">${person.name}</h4>
+                <p><span class="animal-type">${person.type}</span> - <span class="animal-breed">${person.breed}</span>
+                </p>
+            </div>
+            <p class="popup_description_text">${person.description}</p>
+            <ul class="popup_description_list">
+                <li class="list-item">Age: <span class="dinamic age">${person.age}</span></li>
+                <li class="list-item">Inoculations: <span class="dinamic inoculations">${arrayToString(person.inoculations)}</span></li>
+                <li class="list-item">Diseases: <span class="diseases dinamic">${arrayToString(person.diseases)}</span></li>
+                <li class="list-item">Parasites: <span class="dinamic parasites">${arrayToString(person.parasites)}</span></li>
+            </ul>
+        </div>`;
+    document.querySelector('body').prepend(newBlock);
+}
 function openPopup() {
     const slider = document.querySelector('.our-friends_slider_wrapper');
     slider.addEventListener('click', (e) => {
         if(e.target && e.target.tagName == 'BUTTON') {
+            createPopup(e.target.dataset.name);
+            closePopup();
             addActiveClass('.overlay', 'active');
             addActiveClass('.popup','active');
         }
@@ -214,7 +248,7 @@ function slider() {
             newCard.innerHTML = `
                 <img src='${dataPets[i].img}' alt=${dataPets[i].name}>
                 <span class="animal-name">${dataPets[i].name}</span>
-                <button type="button">Learn more</button>
+                <button data-name='${dataPets[i].name}' type="button">Learn more</button>
             `
             return newCard;
         }

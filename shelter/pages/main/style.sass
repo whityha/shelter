@@ -93,7 +93,7 @@ h1,h2,h3,h4,h5,h6,p
     width: 900px
     height: 500px
     background-color: $color-light-s
-    border-radius: 9px
+    border-radius: 20px
     position: fixed
     top: 50%
     left: 50%
@@ -133,10 +133,10 @@ h1,h2,h3,h4,h5,h6,p
             transform: rotate(0deg) translateX(-50%) translateY(-50%)
             
     &_img
-        width: 500px
+        width: 500px      
         img
             width: 500px
-            border-radius: 9px
+            border-radius: 10px
     &_description
         margin-left: 29px
         margin-top: 50px
@@ -159,12 +159,16 @@ h1,h2,h3,h4,h5,h6,p
             row-gap: 10px
             .list-item
                 font-weight: bold
+                position: relative
+                margin-left: 20px
                 .dinamic
                     font-weight: normal
                 &::before
                     color: $color_primary
                     content: '●'
-                    padding-right: 10px
+                    position: absolute
+                    top: 0px
+                    left: -20px
 
             
 
