@@ -69,8 +69,7 @@ h1,h2,h3,h4,h5,h6
 
 body.active
     overflow-y: hidden
-    .logo
-        opacity: 0
+    
 .wrapper
     font-family: $Arial
     width: 1200px
@@ -260,6 +259,8 @@ body.active
                 @media (max-width: $medium)
                     position: relative
                     z-index: 3
+            &.active
+                opacity: 0
         .burger
             display: none
             transition: .4s

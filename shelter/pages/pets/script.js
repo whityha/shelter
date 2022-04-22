@@ -107,13 +107,7 @@ function addActiveClass(classNameBlock,toggleClassName) {
     if(!block.classList.contains(toggleClassName)) block.classList.add(toggleClassName)
 }
 
-function addEventClosePopup() {
-    const closeBtn = document.querySelector('.popup_close-btn');
-    closeBtn.addEventListener('click', () => {
-        closePopup();
-    })
-    
-}
+
 function arrayToString(array) {
     let string = '';
     array.forEach(item => {
@@ -147,7 +141,13 @@ function createPopup(name) {
         </div>`;
     document.querySelector('body').prepend(newBlock);
 }
-function openPopup() {
+function addEventClosePopup() {
+    const closeBtn = document.querySelector('.popup_close-btn');
+    closeBtn.addEventListener('click', () => {
+        closePopup();
+    })    
+}
+function addEventOpenPopup() {
     const slider = document.querySelector('.content_cards');
     slider.addEventListener('click', (e) => {
         if(e.target && e.target.tagName == 'BUTTON') {
@@ -167,7 +167,11 @@ function closePopup() {
     deleteActiveClass('body','active');    
     deletePopup();
 }
-openPopup()
+addEventOpenPopup();
+
+
+
+
 function toggleBurger() {
     const btn = document.querySelector('.burger');
     const overlay = document.querySelector('.overlay');
@@ -178,17 +182,16 @@ function toggleBurger() {
         toggleActiveClass('.burger', 'burger-active');
         toggleActiveClass('.burger-overlay', 'active');
         toggleActiveClass('body', 'active');
+        toggleActiveClass('.logo', 'active');
     })
     burger_overlay.addEventListener('click', (e) => {
         deleteActiveClass('.navbar', 'navbar-active');
         deleteActiveClass('.burger', 'burger-active');
         deleteActiveClass('.burger-overlay', 'active');    
         deleteActiveClass('body', 'active'); 
-        closePopup();     
+        deleteActiveClass('.logo', 'active');    
     })
     overlay.addEventListener('click', (e) => {
-        deleteActiveClass('.navbar', 'navbar-active');
-        deleteActiveClass('.burger', 'burger-active');
         deleteActiveClass('.overlay', 'active');    
         deleteActiveClass('body', 'active'); 
         closePopup();     
@@ -198,6 +201,7 @@ function toggleBurger() {
         deleteActiveClass('.burger', 'burger-active');        
         deleteActiveClass('.burger-overlay', 'active'); 
         deleteActiveClass('body', 'active'); 
+        deleteActiveClass('.logo', 'active');
     }))
 }
 toggleBurger();
