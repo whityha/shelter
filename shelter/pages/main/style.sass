@@ -275,7 +275,19 @@ h1,h2,h3,h4,h5,h6,p
             position: relative
             @media (max-width: $max)
                 width: 62.7%
-                max-width: 444px 
+                max-width: 444px
+                @media (max-width: $medium)
+                    position: fixed
+                    top: 0
+                    right: -110%
+                    width: 320px
+                    height: 100vh
+                    background-color: $color-light-xl
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    transition: .5s
+                    z-index: 6
             .fake-logo
                 transition: cubic-bezier(0.42, 0, 0.58, 1.02) .5s
                 opacity: 0
@@ -333,19 +345,7 @@ h1,h2,h3,h4,h5,h6,p
                             bottom: 0
                             left: 0
                             height: 3px
-                            background-color: $color_primary
-            @media (max-width: $medium)
-                position: fixed
-                top: 0
-                right: -110%
-                width: 320px
-                height: 100vh
-                background-color: $color-dark-3xl
-                display: flex
-                justify-content: center
-                align-items: center
-                transition: .5s
-                z-index: 6
+                            background-color: $color_primary            
                 
         .navbar-active
             @media (max-width: $medium)

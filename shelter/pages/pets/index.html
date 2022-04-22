@@ -10,16 +10,21 @@
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
+    <div class="overlay"></div>
     <header class="header">
         <div class="wrapper">
             <div class="logo">
                 <h1><a href='https://rolling-scopes-school.github.io/whityha-JSFE2022Q1/shelter/pages/main/'>Cozy House</a></h1>
                 <span>Shelter for pets in Boston</span>
             </div>
-            <div class="burger-pets">
-                
+            <div class="burger-overlay"></div>
+            <div class="burger">                
             </div>             
             <nav class="navbar">
+                <div class="fake-logo">
+                    <a class="cozy" href='https://rolling-scopes-school.github.io/whityha-JSFE2022Q1/shelter/pages/main/'>Cozy House</a>
+                    <span class="small-text">Shelter for pets in Boston</span>
+                </div>
                 <ul class="navbar-list">
                     <li><a href="https://rolling-scopes-school.github.io/whityha-JSFE2022Q1/shelter/pages/main/">About the shelter</a></li>
                     <li><a class="active" href="#">Our pets</a></li>
@@ -36,7 +41,7 @@
                 <div class="content_cards_card">
                     <img src="../../assets/images/pets-katrine.png" alt="katrine">
                     <span class="animal-name">Katrine</span>
-                    <button type="button">Learn more</button>
+                    <button data-name='Katrine' type="button">Learn more</button>
                 </div>
                 <div class="content_cards_card">
                     <img src="../../assets/images/pets-jennifer.png" alt="jennifer">
@@ -101,6 +106,7 @@
                 </div>
             </div>
         </div>
-    </footer>    
+    </footer>   
+    <script src="script.js"></script> 
 </body>
 </html>
