@@ -148,7 +148,6 @@ function createPopup(name) {
     document.querySelector('body').prepend(newBlock);
 }
 function openPopup() {
-    const body = document.querySelector('body');
     const slider = document.querySelector('.our-friends_slider_wrapper');
     slider.addEventListener('click', (e) => {
         if(e.target && e.target.tagName == 'BUTTON') {
@@ -156,33 +155,39 @@ function openPopup() {
             addEventClosePopup();
             addActiveClass('.overlay', 'active');
             addActiveClass('.popup','active');
-            body.style.overflowY = 'hidden'
+            addActiveClass('body','active');
         }
     })
 }
 function closePopup() {
-    const body = document.querySelector('body');
     deleteActiveClass('.overlay','active'); 
     deleteActiveClass('.popup','active');
-    body.style.overflowY = 'visible';
+    deleteActiveClass('body','active');
 }
 openPopup()
 function toggleBurger() {
     const btn = document.querySelector('.burger');
     const overlay = document.querySelector('.overlay');
-    
+    const nav_items = document.querySelectorAll('.navbar-list a');
     btn.addEventListener('click', () => {
         toggleActiveClass('.navbar', 'navbar-active');
         toggleActiveClass('.burger', 'burger-active');
         toggleActiveClass('.overlay', 'active');
-        toggleActiveClass('.logo', 'active');
+        toggleActiveClass('body', 'active');
     })
     overlay.addEventListener('click', (e) => {
         deleteActiveClass('.navbar', 'navbar-active');
         deleteActiveClass('.burger', 'burger-active');
-        deleteActiveClass('.overlay', 'active');   
+        deleteActiveClass('.overlay', 'active');  
+        deleteActiveClass('body', 'active'); 
         closePopup();     
     })
+    nav_items.forEach(item => item.addEventListener('click', () => {
+        deleteActiveClass('.navbar', 'navbar-active');
+        deleteActiveClass('.burger', 'burger-active');
+        deleteActiveClass('.overlay', 'active');  
+        deleteActiveClass('body', 'active'); 
+    }))
 }
 toggleBurger();
 
