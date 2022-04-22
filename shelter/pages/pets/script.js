@@ -154,16 +154,18 @@ function openPopup() {
             createPopup(e.target.dataset.name);
             addEventClosePopup();
             addActiveClass('.overlay', 'active');
-            addActiveClass('.popup','active');
             addActiveClass('body','active');
-            document.querySelector('.popup').style.opacity = 1;
         }
     })
 }
+function deletePopup() {
+    const popup = document.querySelector('.popup');
+    if(popup) popup.remove();
+}
 function closePopup() {
     deleteActiveClass('.overlay','active'); 
-    deleteActiveClass('.popup','active');
-    deleteActiveClass('body','active');
+    deleteActiveClass('body','active');    
+    deletePopup();
 }
 openPopup()
 function toggleBurger() {

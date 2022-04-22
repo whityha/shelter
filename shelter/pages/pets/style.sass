@@ -89,10 +89,9 @@ body.active
     &:hover
         cursor: pointer
 
-.popup.active
-    display: flex
+
 .popup
-    display: none
+    display: flex
     width: 900px
     height: 500px
     background-color: $color-light-s
@@ -102,7 +101,6 @@ body.active
     left: 50%
     z-index: 10
     transform: translateX(-50%) translateY(-50%)
-    opacity: 0
     transition: 3s
     @media (max-width: $max)
         width: 630px
