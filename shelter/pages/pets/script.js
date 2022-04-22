@@ -118,7 +118,6 @@ function arrayToString(array) {
 }
 function createPopup(name) {
     const person = dataPets.filter(item => item.name == name)[0];
-    console.log(person);
     const newBlock = document.createElement('div');
     newBlock.classList.add('popup')
     newBlock.innerHTML = `<button type="button" class="popup_close-btn"></button>     
@@ -148,7 +147,7 @@ function addEventClosePopup() {
     })    
 }
 function addEventOpenPopup() {
-    const slider = document.querySelector('.content_cards');
+    const slider = document.querySelector('.wrapper-slider');
     slider.addEventListener('click', (e) => {
         if(e.target && e.target.tagName == 'BUTTON') {
             createPopup(e.target.dataset.name);

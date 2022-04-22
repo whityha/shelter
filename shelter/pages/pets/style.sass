@@ -81,7 +81,7 @@ body.active
     transition: .2s
     &.active
         position: fixed
-        z-index: 4
+        z-index: 14
         width: 100vw
         height: 100vh
         background-color: rgba(41,41,41,.6)
@@ -98,7 +98,7 @@ body.active
     position: fixed
     top: 50%
     left: 50%
-    z-index: 10
+    z-index: 20
     transform: translateX(-50%) translateY(-50%)
     transition: 3s
     @media (max-width: $max)
@@ -176,10 +176,16 @@ body.active
                 +for_h3
                 color: black
                 margin-bottom: 10px
+                text-align: left
+                @media ( max-width: $medium)
+                    text-align: center
+                    
             p
                 font-size: 20px
                 line-height: 23px
+                margin: 0
         &_text
+            margin: 0
             @media (max-width: $max)
                 font-size: 13px   
                 @media (max-width: $medium)
@@ -208,6 +214,7 @@ body.active
     position: sticky
     top: 0
     background-color: #fff
+    z-index: 10
     @media (max-width: $max)
         padding: 0px 30px
         @media (max-width: $medium)
@@ -365,34 +372,55 @@ main
         align-items: center
         @media (max-width: $max)
             padding-top: 83px
-            padding-bottom: 74px
+            padding-bottom: 78px
             @media (max-width: $medium)
                 padding: 42px 10px
         h3
             +for_h3
             @media (max-width: $medium)
                 line-height: 1.26
-        &_cards
+        .wrapper-slider
+            width: 100%
+            height: 900px
             margin-top: 60px
             margin-bottom: 60px
+            @media (max-width: $max)
+                height: 1365px
+                margin-top: 30px
+                margin-bottom: 35px
+                @media (max-width: $medium)
+                    margin-top: 0px
+                    margin-bottom: 85px
+        .slider-list
+            position: relative
+            width: 100%            
+            height: 900px
+            margin: 0
+        .slider-item
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%     
             display: flex
             flex-wrap: wrap
             justify-content: center
             column-gap: 40px
             row-gap: 30px
-            color: $color_dark_l
-            
+            color: $color_dark_l 
+            opacity: 0  
+            transition: .5s         
             @media (max-width: $max)
-                margin-top: 30px
-                margin-bottom: 40px
                 max-width: 768px
+                top: 0
+                left: 50%
+                transform: translateX(-50%)
                 @media (max-width: $medium)
                     flex-direction: column
                     flex-wrap: nowrap
                     align-items: center
                     margin-bottom: 42px
                     margin-top: 42px
-            &_card
+            .card
                 width: 270px
                 border-radius: 9px
                 height: 435px
