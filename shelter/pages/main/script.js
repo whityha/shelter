@@ -1,6 +1,6 @@
 'use strict'
 
-const dataPets = [
+const data = `[
     {
       "name": "Jennifer",
       "img": "../../assets/images/pets-jennifer.png",
@@ -89,7 +89,10 @@ const dataPets = [
       "diseases": ["deafness", "blindness"],
       "parasites": ["lice", "fleas"]
     }
-  ]
+  ]`;
+
+const dataPets = JSON.parse(data);
+
 function toggleActiveClass(classNameBlock,toggleClassName) {
     const block = document.querySelector(classNameBlock);
     if(block.classList.contains(toggleClassName)) block.classList.remove(toggleClassName)
@@ -103,12 +106,13 @@ function addActiveClass(classNameBlock,toggleClassName) {
     const block = document.querySelector(classNameBlock);
     if(!block.classList.contains(toggleClassName)) block.classList.add(toggleClassName)
 }
-function closePopup() {
-    const closeBtn = document.querySelector('.popup_close-btn')
+
+function addEventClosePopup() {
+    const closeBtn = document.querySelector('.popup_close-btn');
     closeBtn.addEventListener('click', () => {
-        deleteActiveClass('.overlay', 'active');
-        deleteActiveClass('.popup','active');
+        closePopup();
     })
+    
 }
 function arrayToString(array) {
     let string = '';
@@ -144,15 +148,23 @@ function createPopup(name) {
     document.querySelector('body').prepend(newBlock);
 }
 function openPopup() {
+    const body = document.querySelector('body');
     const slider = document.querySelector('.our-friends_slider_wrapper');
     slider.addEventListener('click', (e) => {
         if(e.target && e.target.tagName == 'BUTTON') {
             createPopup(e.target.dataset.name);
-            closePopup();
+            addEventClosePopup();
             addActiveClass('.overlay', 'active');
             addActiveClass('.popup','active');
+            body.style.overflowY = 'hidden'
         }
     })
+}
+function closePopup() {
+    const body = document.querySelector('body');
+    deleteActiveClass('.overlay','active'); 
+    deleteActiveClass('.popup','active');
+    body.style.overflowY = 'visible';
 }
 openPopup()
 function toggleBurger() {
@@ -168,8 +180,8 @@ function toggleBurger() {
     overlay.addEventListener('click', (e) => {
         deleteActiveClass('.navbar', 'navbar-active');
         deleteActiveClass('.burger', 'burger-active');
-        deleteActiveClass('.overlay', 'active');
-        deleteActiveClass('.popup','active');
+        deleteActiveClass('.overlay', 'active');   
+        closePopup();     
     })
 }
 toggleBurger();
