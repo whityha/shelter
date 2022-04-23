@@ -297,6 +297,9 @@ h1,h2,h3,h4,h5,h6,p
                     font-size: 32px
                     letter-spacing: 0.06em
                     font-weight: 400
+                    a
+                        color: inherit
+
                 .small-text
                     font-family: $Arial
                     font-size: 13px
@@ -351,7 +354,7 @@ h1,h2,h3,h4,h5,h6,p
                 right: 0
         .burger-active
             @media (max-width: $medium)
-                position: fixed
+                position: absolute
                 right: 0px
                 transform: rotate(90deg)
                 z-index: 8
