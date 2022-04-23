@@ -124,7 +124,6 @@ function arrayToString(array) {
 }
 function createPopup(name) {
     const person = dataPets.filter(item => item.name == name)[0];
-    console.log(person);
     const newBlock = document.createElement('div');
     newBlock.classList.add('popup')
     newBlock.innerHTML = `<button type="button" class="popup_close-btn"></button>     
@@ -150,8 +149,9 @@ function createPopup(name) {
 function openPopup() {
     const slider = document.querySelector('.our-friends_slider_wrapper');
     slider.addEventListener('click', (e) => {
-        if(e.target && e.target.tagName == 'BUTTON') {
-            createPopup(e.target.dataset.name);
+        let card = e.target.closest('.our-friends_slider_cards_card');
+        if(e.target.classList.contains('our-friends_slider_cards_card') || card) {
+            createPopup(card.dataset.name);
             addEventClosePopup();
             addActiveClass('.overlay', 'active');
             addActiveClass('body','active');
@@ -264,7 +264,8 @@ function slider() {
 
         function createNewCard(i) {
             const newCard = document.createElement('div');
-            newCard.classList.add('our-friends_slider_cards_card');
+            newCard.classList.add('our-friends_slider_cards_card');            
+            newCard.setAttribute('data-name', `${dataPets[i].name}`)
             newCard.innerHTML = `
                 <img src='${dataPets[i].img}' alt=${dataPets[i].name}>
                 <span class="animal-name">${dataPets[i].name}</span>

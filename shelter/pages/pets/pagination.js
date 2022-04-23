@@ -152,6 +152,7 @@ function createSlider(size = 'max', cards, slides, cardsOnSlide) {
 function createNewCard(i) {
     const newCard = document.createElement('div');
     newCard.classList.add('card');
+    newCard.setAttribute('data-name', `${data_pets[i].name}`)
     newCard.innerHTML = `
         <img src='${data_pets[i].img}' alt=${data_pets[i].name}>
         <span class="animal-name">${data_pets[i].name}</span>

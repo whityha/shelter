@@ -148,9 +148,10 @@ function addEventClosePopup() {
 }
 function addEventOpenPopup() {
     const slider = document.querySelector('.wrapper-slider');
-    slider.addEventListener('click', (e) => {
-        if(e.target && e.target.tagName == 'BUTTON') {
-            createPopup(e.target.dataset.name);
+    slider.addEventListener('click', (e) => {        
+        let card = e.target.closest('.card');
+        if(e.target.classList.contains('card') || card) {
+            createPopup(card.dataset.name);
             addEventClosePopup();
             addActiveClass('.overlay', 'active');
             addActiveClass('body','active');
