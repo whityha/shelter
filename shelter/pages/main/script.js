@@ -295,7 +295,7 @@ function slider() {
     }
 
     function createStartPageSlider() {
-        for( let i = 0; i < 5; i++) {
+        for( let i = 0; i < 3; i++) {
             slider.append(createNewSlide());
         }
     }
