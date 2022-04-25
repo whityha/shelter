@@ -144,7 +144,7 @@ function createPopup(name) {
                 <li class="list-item">Parasites: <span class="dinamic parasites">${arrayToString(person.parasites)}</span></li>
             </ul>
         </div>`;
-    document.querySelector('body').prepend(newBlock);
+    document.querySelector('.overlay').prepend(newBlock);
 }
 function openPopup() {
     const slider = document.querySelector('.our-friends_slider_wrapper');
@@ -179,11 +179,13 @@ function toggleBurger() {
         toggleActiveClass('body', 'active');
     })
     overlay.addEventListener('click', (e) => {
-        deleteActiveClass('.navbar', 'navbar-active');
-        deleteActiveClass('.burger', 'burger-active');
-        deleteActiveClass('.overlay', 'active');  
-        deleteActiveClass('body', 'active'); 
-        closePopup();     
+        if(e.target.classList.contains('overlay')) {
+            deleteActiveClass('.navbar', 'navbar-active');
+            deleteActiveClass('.burger', 'burger-active');
+            deleteActiveClass('.overlay', 'active');  
+            deleteActiveClass('body', 'active'); 
+            closePopup();   
+        }  
     })
     nav_items.forEach(item => item.addEventListener('click', () => {
         deleteActiveClass('.navbar', 'navbar-active');
@@ -301,4 +303,3 @@ function slider() {
     createStartPageSlider();
 }
 slider()
-

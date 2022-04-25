@@ -138,7 +138,7 @@ function createPopup(name) {
                 <li class="list-item">Parasites: <span class="dinamic parasites">${arrayToString(person.parasites)}</span></li>
             </ul>
         </div>`;
-    document.querySelector('body').prepend(newBlock);
+    document.querySelector('.overlay').prepend(newBlock);
 }
 function addEventClosePopup() {
     const closeBtn = document.querySelector('.popup_close-btn');
@@ -192,9 +192,11 @@ function toggleBurger() {
         deleteActiveClass('.logo', 'active');    
     })
     overlay.addEventListener('click', (e) => {
-        deleteActiveClass('.overlay', 'active');    
-        deleteActiveClass('body', 'active'); 
-        closePopup();     
+        if(e.target.classList.contains('overlay')) {
+            deleteActiveClass('.overlay', 'active');    
+            deleteActiveClass('body', 'active'); 
+            closePopup();
+        }   
     })
     nav_items.forEach(item => item.addEventListener('click', () => {
         deleteActiveClass('.navbar', 'navbar-active');

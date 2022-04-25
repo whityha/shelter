@@ -87,6 +87,10 @@ body.active
         background-color: rgba(41,41,41,.6)
     &:hover
         cursor: pointer
+        .popup
+            cursor: default
+        .popup_close-btn
+            background-color: $color-primary-light
 
 
 .popup
@@ -101,6 +105,11 @@ body.active
     z-index: 20
     transform: translateX(-50%) translateY(-50%)
     transition: 3s
+    &:hover
+        .popup_close-btn
+            background-color: transparent
+            &:hover
+                background-color: $color-primary-light
     @media (max-width: $max)
         width: 630px
         height: auto
