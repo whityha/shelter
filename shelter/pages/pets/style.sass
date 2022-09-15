@@ -1,0 +1,637 @@
+$Arial: Arial, sans-serif
+$Georgia: Georgia, serif
+
+$color_white: white
+$color_primary: #F1CDB3
+$color-primary-light: #FDDCC4
+$color-dark-s: #CDCDCD
+$color_light_xl: #FFFFFF
+$color_dark_3xl: #292929
+$color_dark_l: #545454
+$color-dark-xl: #4C4C4C
+$color-light-l: #F6F6F6
+$color-light-s: #FAFAFA
+$color-orange: #F1CDB3
+$color-dark-m: #b2b2b2
+
+$letter-spacing: 0.06em
+
+$max: 1279px
+$medium: 767px
+$small: 319px
+
+ul, ol 
+    list-style: none
+    padding: 0
+a
+    text-decoration: none    
+    color: inherit
+
+html
+    scroll-behavior: smooth
+
+*
+    box-sizing: border-box
+
+h1,h2,h3,h4,h5,h6 
+    padding: 0
+    margin: 0
+
+=for_h3
+    font-size: 35px
+    line-height: 1.3
+    font-family: $Georgia
+    font-weight: 400
+    letter-spacing: $letter-spacing
+    color: $color-dark-l
+    text-align: center
+    @media (max-width: $medium)
+        font-size: 25px
+        line-height: 1.1
+
+@font-face 
+    font-family: 'Arial'
+    src: url('../../assets/fonts/arial/arial-regular.ttf') format('truetype')
+    font-weight: 400
+    font-style: normal
+
+@font-face 
+    font-family: 'Arial'
+    src: url('../../assets/fonts/arial/arial-italic.ttf') format('truetype')
+    font-weight: 400
+    font-style: italic
+
+@font-face 
+    font-family: 'Georgia'
+    src: url('../../assets/fonts/georgia/georgia-regular.ttf') format('truetype')
+    font-weight: 400
+    font-style: normal
+
+body.active
+    overflow-y: hidden
+    
+.wrapper
+    font-family: $Arial
+    width: 1200px
+    margin: 0 auto
+    @media (max-width: $max)
+        width: 100%
+
+.overlay
+    transition: .2s
+    &.active
+        position: fixed
+        z-index: 14
+        width: 100vw
+        height: 100vh
+        background-color: rgba(41,41,41,.6)
+    &:hover
+        cursor: pointer
+        .popup
+            cursor: default
+        .popup_close-btn
+            background-color: $color-primary-light
+
+
+.popup
+    display: flex
+    width: 900px
+    height: 500px
+    background-color: $color-light-s
+    border-radius: 20px
+    position: fixed
+    top: 50%
+    left: 50%
+    z-index: 20
+    transform: translateX(-50%) translateY(-50%)
+    transition: 3s
+    &:hover
+        .popup_close-btn
+            background-color: transparent
+            &:hover
+                background-color: $color-primary-light
+    @media (max-width: $max)
+        width: 630px
+        height: auto
+        min-height: 350px
+        @media (max-width: $medium)
+            width: 240px
+    &_close-btn
+        position: absolute
+        right: -40px
+        top: -50px
+        width: 50px
+        height: 50px
+        border: 2px solid $color_primary
+        border-radius: 100px
+        background-color: transparent
+        transform: rotate(45deg)
+        cursor: pointer
+        transition: .2s
+        @media (max-width: $medium)
+            right: -25px
+        &:hover
+            background-color: $color-primary-light
+        &::after
+            content: ''
+            background-color: black
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 17px
+            height: 2px
+            transform: rotate(0deg) translateX(-50%) translateY(-50%)
+        &::before
+            content: ''
+            background-color: black
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 2px
+            height: 17px
+            transform: rotate(0deg) translateX(-50%) translateY(-50%)
+            
+    &_img
+        width: 500px
+        @media (max-width: $max)
+            width: 350px
+            height: 350px
+            @media (max-width: $medium)
+                display: none
+        img
+            width: 500px
+            border-radius: 10px
+            @media (max-width: $max)
+                width: 350px
+                height: 350px
+    &_description
+        margin-left: 29px
+        margin-top: 50px
+        margin-right: 20px
+        display: flex
+        flex-direction: column
+        row-gap: 40px
+        font-family: $Georgia
+        @media (max-width: $max)
+            margin-top: 10px
+            margin-left: 11px
+            row-gap: 20px
+            @media (max-width: $medium)
+                margin: 10px
+        &_breed
+            @media (max-width: $medium)
+                text-align: center
+            .name-animal
+                +for_h3
+                color: black
+                margin-bottom: 10px
+                text-align: left
+                @media ( max-width: $medium)
+                    text-align: center
+                    
+            p
+                font-size: 20px
+                line-height: 23px
+                margin: 0
+        &_text
+            margin: 0
+            @media (max-width: $max)
+                font-size: 13px   
+                @media (max-width: $medium)
+                    text-align: justify         
+        &_list
+            display: flex
+            flex-direction: column
+            row-gap: 10px
+            margin: 0
+            @media (max-width: $max)
+                padding-bottom: 10px
+            .list-item
+                font-weight: bold
+                position: relative
+                margin-left: 20px
+                .dinamic
+                    font-weight: normal
+                &::before
+                    color: $color_primary
+                    content: '●'
+                    position: absolute
+                    top: 0px
+                    left: -20px 
+
+.header
+    position: sticky
+    top: 0
+    background-color: #fff
+    z-index: 10
+    @media (max-width: $max)
+        padding: 0px 30px
+        @media (max-width: $medium)
+            padding: 0 10px
+    .wrapper        
+        padding: 30px 0px
+        display: flex
+        padding-top: 36px
+        justify-content: space-between  
+        position: relative
+        @media (max-width: $max)
+            padding: 29px 0px   
+            @media (max-width: $medium)
+                align-items: center  
+        .burger-overlay
+            transition: .2s
+            &.active
+                position: fixed
+                top: 0
+                right: 0
+                z-index: 4
+                width: 100vw
+                height: 100vh
+                background-color: rgba(41,41,41,.6)
+            &:hover
+        cursor: pointer 
+        .logo
+            height: 60px
+            transition: .2s
+            h1
+                color: $color_dark_l
+                font-family: $Georgia
+                font-size: 32px
+                line-height: 1.1
+                letter-spacing: $letter-spacing
+                font-weight: 400
+                margin-bottom: 8px
+                @media (max-width: $medium)
+                    position: relative
+                    z-index: 3
+            span
+                display: inline-block
+                font-family: $Arial
+                padding-left: 3px
+                color: $color-dark-3xl
+                letter-spacing: .1em
+                font-size: 13px
+                line-height: 14.95px
+                @media (max-width: $medium)
+                    position: relative
+                    z-index: 3
+            &.active
+                opacity: 0
+        .burger
+            display: none
+            transition: .4s
+            @media (max-width: $medium)
+                display: flex
+                width: 30px
+                height: 22px
+                background: url('../../assets/images/Burger-pets.svg') no-repeat center center
+                margin-right: 43px
+                z-index: 8
+        .navbar.navbar-active .fake-logo
+            opacity: 1 
+        .navbar
+            width: 36.9%
+            position: relative
+            @media (max-width: $max)
+                width: 63%
+                @media (max-width: $medium)
+                    position: fixed
+                    top: 0
+                    right: -110%
+                    width: 320px
+                    height: 100vh
+                    background-color: $color-light-xl
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    transition: .5s
+                    z-index: 6
+            .fake-logo
+                transition: cubic-bezier(0.42, 0, 0.58, 1.02) .5s
+                opacity: 0
+                display: none
+                .cozy
+                    font-family: $Georgia
+                    color: $color-dark-l
+                    font-size: 32px
+                    letter-spacing: 0.06em
+                    font-weight: 400
+                .small-text
+                    font-family: $Arial
+                    font-size: 13px
+                    letter-spacing: 0.116em
+                    font-weight: 400
+                    display: inline-block
+                    padding-left: 4px
+                    padding-top: 9px
+                    letter-spacing: .1em
+                @media (max-width: $medium)
+                    display: block
+                    opacity: 0
+                    position: absolute    
+                    top: 30px
+                    left: 10px        
+        .navbar-list
+            display: flex
+            column-gap: 35px
+            color: $color-dark-l
+            font-size: 15px
+            line-height: 24px  
+            @media (max-width: $max)
+                column-gap: 36px
+                justify-content: flex-end
+                @media (max-width: $medium)
+                    flex-direction: column
+                    align-items: center
+                    row-gap: 43px         
+            .active
+                color: $color-dark-3xl
+                position: relative
+                padding-bottom: 7px
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 100%
+                    bottom: 0
+                    left: 0
+                    height: 3px
+                    background-color: $color_primary
+            a
+                transition: .1s
+                @media (max-width: $medium)
+                    font-size: 32px
+                &:hover
+                    color: $color-dark-3xl
+        .navbar-active
+            @media (max-width: $medium)
+                right: 0
+        .burger-active
+            @media (max-width: $medium)
+                position: fixed
+                top: 48px
+                right: 13px
+                transform: rotate(90deg)
+                z-index: 8
+main
+    background-color: $color-light-l
+    .content
+        padding: 77px 0px 99px 0px
+        display: flex
+        flex-direction: column
+        align-items: center
+        @media (max-width: $max)
+            padding-top: 83px
+            padding-bottom: 78px
+            @media (max-width: $medium)
+                padding: 42px 10px
+        h3
+            +for_h3
+            @media (max-width: $medium)
+                line-height: 1.26
+        .wrapper-slider
+            width: 100%
+            height: 900px
+            margin-top: 60px
+            margin-bottom: 60px
+            @media (max-width: $max)
+                height: 1365px
+                margin-top: 30px
+                margin-bottom: 35px
+                @media (max-width: $medium)
+                    margin-top: 0px
+                    margin-bottom: 85px
+        .slider-list
+            position: relative
+            width: 100%            
+            height: 900px
+            margin: 0
+        .slider-item
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%     
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            column-gap: 40px
+            row-gap: 30px
+            color: $color_dark_l 
+            opacity: 0  
+            transition: .5s         
+            @media (max-width: $max)
+                max-width: 768px
+                top: 0
+                left: 50%
+                transform: translateX(-50%)
+                @media (max-width: $medium)
+                    flex-direction: column
+                    flex-wrap: nowrap
+                    align-items: center
+                    margin-bottom: 42px
+                    margin-top: 42px
+            .card
+                width: 270px
+                border-radius: 9px
+                height: 435px
+                background-color: $color-light-s                
+                font-family: $Georgia
+                display: flex
+                flex-direction: column
+                align-items: center
+                transition: .2s
+                cursor: pointer               
+                            
+                            
+                &:hover            
+                    background-color: $color-light-xl
+                    button                           
+                        border-color: $color_primary                  
+                        background-color: $color_primary              
+                img
+                    margin-bottom: 30px
+                .animal-name
+                    margin-bottom: 30px
+                    font-size: 20px
+                    letter-spacing: .06em
+                    line-height: 1.13        
+                button
+                    color: $color-dark-3xl
+                    padding: 15px 45px
+                    border-radius: 100px
+                    border: 2px solid $color_primary
+                    background-color: transparent
+                    transition: .2s
+                    font-size: 17px
+                    font-weight: 400
+                    letter-spacing: .06em
+                    &:hover
+                        cursor: pointer
+                        border-color: $color-primary-light
+                        background-color: $color-primary-light
+        &_pagination
+            display: flex
+            column-gap: 20px
+            justify-content: center
+            @media (max-width: $medium)
+                column-gap: 10px
+            button
+                font-family: $Georgia
+                border-radius: 50px
+                border: 2px solid $color-primary
+                width: 52px
+                height: 52px
+                font-size: 20px
+                letter-spacing: $letter-spacing
+                background-color: inherit
+                transition: .2s
+            .pagination_btn
+                &:hover:not([disabled])                 
+                    cursor: pointer
+                    background-color: $color-primary-light
+                    border: 2px solid $color-primary-light                
+                &:disabled
+                    border: 2px solid $color-dark-s
+                    color: $color-dark-s
+                    cursor: default
+            .page-number
+                background-color: $color-primary
+.footer
+    background: url('../../assets/images/noise_transparent@2x.png'),
+    linear-gradient(120deg,#5B483A 10%, #211F20 60%) 
+    padding-top: 40px
+    @media (max-width: $max)
+        padding-top: 14px
+        @media (max-width: $medium)
+            padding-top: 0
+    &_content
+        display: flex
+        justify-content: space-between
+        font-family: $Georgia
+        margin-top: 6px
+        @media (max-width: $max)
+            align-items: center
+            flex-wrap: wrap
+            justify-content: center
+            row-gap: 65px
+            column-gap: 28px  
+            @media ( max-width: $medium )
+                margin-top: 0
+                padding: 25px 10px 0 10px
+                row-gap: 0
+                flex-wrap: none
+                flex-direction: column
+                align-items: center
+        &_contacts
+            display: flex
+            flex-direction: column
+            max-width: 23.5%
+            padding-top: 10px
+            @media (max-width: $max)
+                max-width: 40%   
+                @media (max-width: $medium)
+                    max-width: 100%
+                    margin: 0 
+                    align-items: center
+            h3
+                +for_h3
+                color: $color-light-xl
+                margin-bottom: 40px
+                text-align: left
+                @media (max-width: $max)
+                    text-align: left
+                    @media (max-width: $medium)
+                        margin-bottom: 45px
+                        text-align: center
+            .email
+                padding-left: 60px
+                padding-top: 3px
+                padding-bottom: 3px
+                font-family: $Georgia
+                font-size: 20px
+                line-height: 23px
+                letter-spacing: $letter-spacing
+                color: $color_primary
+                text-decoration: none
+                font-weight: 400
+                margin-bottom: 40px
+                background: url('../../assets/icons/mail.svg') no-repeat left center
+            .phone
+                padding: 5px 0px 5px 60px
+                font-family: $Georgia
+                font-size: 20px
+                line-height: 23px
+                letter-spacing: $letter-spacing
+                color: $color_primary
+                text-decoration: none
+                font-weight: 400
+                background: url('../../assets/icons/icon-phone.svg') no-repeat left center
+            .email, .phone
+                &:hover
+                    text-decoration: underline
+        &_address
+            display: flex
+            padding-top: 10px
+            flex-direction: column          
+            margin-left: 157px
+            font-family: $Georgia
+            font-size: 20px
+            line-height: 23px
+            letter-spacing: $letter-spacing
+            color: $color_primary     
+            @media (max-width: $max)
+                margin-left: 0
+                padding-left: 5px
+                max-width: 40%
+                @media (max-width: $medium)
+                    padding-left: 0
+                    max-width: 100%
+                    padding-top: 45px
+                    align-items: flex-start        
+            h3
+                +for_h3
+                color: $color-light-xl
+                text-align: left
+                @media (max-width: $max)
+                    max-width: 480px
+                    @media (max-width: $medium)
+                        align-self: center
+                        text-align: center      
+                        margin: 0px 15px  
+                        line-height: 1.25            
+            .address_boston, .address_london                
+                font-style: normal
+                margin-top: 32px
+                @media (max-width: $medium)
+                    margin-top: 34px
+                a
+                    display: inline-block
+                    color: inherit
+                    text-decoration: none
+                    background: url('../../assets/icons/icon-marker.svg') no-repeat left center
+                    padding-left: 42px
+                    text-align: left
+                    &:hover
+                        text-decoration: underline
+            .address_london a
+                padding-top: 5px
+                padding-bottom: 5px
+            @media (max-width: $medium)
+                .address_boston a
+                    padding-top: 5px
+                    padding-bottom: 5px
+        &_image
+            margin-left: 160px
+            max-height: 310px
+            margin-top: -5px
+            @media (max-width: $max)
+                margin: 0
+                @media (max-width: $medium)
+                    margin: 40px 0 0 0
+                    width: 86%
+                    img
+                        display: block
+                        width: 100%
+                        margin: 0 auto
+                        max-width: 300px
+            
+        
